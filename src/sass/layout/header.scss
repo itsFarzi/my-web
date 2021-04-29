@@ -1,0 +1,48 @@
+@media (max-width: 1280px) {
+	#header {
+		color: $primary-color;
+	}
+}
+
+#header {
+	z-index: 1000;
+	display: flex;
+	color: $white-color;
+	font-weight: 800;
+	align-items: center;
+	text-transform: capitalize;
+	background-color: $secondary-color;
+	padding: 10px;
+	justify-content: space-between;
+	border-radius: 100vw;
+	position: fixed;
+	left: 20px;
+	right: 20px;
+	top: 20px;
+
+	&-logo {
+		font-size: 1.5em;
+
+		&-img {
+			width: 30px;
+			height: 30px;
+		}
+
+		&-name {
+			margin-left: 10px;
+		}
+	}
+
+	&-items {
+		display: flex;
+	}
+}
+
+.header-item {
+	cursor: pointer;
+	font-size: 0.9em;
+	margin-right: 20px;
+	&-active {
+		color: $primary-color;
+	}
+}

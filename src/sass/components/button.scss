@@ -1,0 +1,32 @@
+.button {
+	&-primary {
+		padding: 20px;
+		cursor: pointer;
+		font-weight: bold;
+		border-radius: 100px;
+		color: $primary-color;
+		align-self: flex-start;
+		text-transform: uppercase;
+		border: solid 1px $primary-color;
+		background-color: transparent;
+
+		&-hover {
+			color: $white-color;
+			transition: color 0.5s;
+			border-color: $secondary-color;
+
+			&:hover {
+				color: $primary-color;
+				border-color: $primary-color;
+			}
+		}
+
+		& > i {
+			margin-left: 10px;
+		}
+
+		& > * {
+			font-size: 0.9em;
+		}
+	}
+}

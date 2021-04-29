@@ -1,0 +1,47 @@
+.row {
+	display: flex;
+
+	&-spaceBetween {
+		display: flex;
+		justify-content: space-between;
+	}
+	&-center {
+		display: flex;
+		align-items: center;
+	}
+	&-center-spaceBetween {
+		display: flex;
+		justify-content: space-between;
+	}
+}
+
+.screen {
+	&-fit {
+		width: 100vw;
+		height: 100vh;
+	}
+}
+
+.flex {
+	display: flex;
+	flex: 1;
+}
+
+.display {
+	&-invisible {
+		opacity: 0;
+	}
+	&-clone {
+		position: static !important;
+		opacity: 0;
+	}
+}
+
+.chameleons {
+	cursor: pointer;
+	color: $white-color;
+	transition: color 0.5s;
+	&:hover {
+		color: $primary-color;
+	}
+}

@@ -1,0 +1,24 @@
+//Abstract
+@import "./abstract/variable.scss";
+@import "./abstract/helpers.scss";
+
+//Base
+@import "./base/base.scss";
+
+//Components
+@import "./components/button.scss";
+@import "./components/heading.scss";
+@import "./components/progressBar.scss";
+@import "./components/input.scss";
+
+//Layout
+@import "./layout/table.scss";
+@import "./layout/header.scss";
+@import "./layout/dataCalender.scss";
+@import "./layout/percentGrid.scss";
+
+//Pages
+@import "./pages/main.scss";
+@import "./pages/me.scss";
+@import "./pages/aboutMe.scss";
+@import "./pages/contact.scss";

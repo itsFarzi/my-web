@@ -1,0 +1,103 @@
+#data-calender {
+	position: relative;
+	margin-top: 80px;
+	display: flex;
+	overflow: auto;
+	user-select: none;
+	scroll-behavior: smooth;
+	cursor: grab;
+
+	&:active {
+		cursor: grabbing;
+	}
+
+	&::-webkit-scrollbar {
+		height: 10px;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background: $secondary-color;
+		border-radius: 10px;
+		cursor: pointer;
+	}
+
+	&-item {
+		display: block;
+		word-wrap: break-word;
+		padding: 0 20px 20px 0;
+	}
+
+	&-title {
+		font-size: 1.4em;
+		font-weight: 800;
+		color: $white-color;
+		text-transform: capitalize;
+	}
+
+	&-time {
+		font-size: 0.9em;
+		font-weight: 600;
+		color: $primary-color;
+		text-transform: capitalize;
+	}
+
+	&-description {
+		margin-top: 18px;
+	}
+
+	&-subTitle {
+		font-size: 1.2em;
+		font-weight: 600;
+		margin: 2px 0 5px 0;
+		color: $secondary-color;
+	}
+
+	&-controller {
+		display: flex;
+		position: relative;
+		align-items: center;
+		padding-right: 80px;
+
+		&-left {
+			margin-right: 25px;
+			transform-origin: left;
+		}
+
+		&-bar {
+			top: 50%;
+			bottom: 0;
+			height: 1px;
+			width: 100%;
+			z-index: -10;
+			position: absolute;
+			background: $primary-color;
+		}
+	}
+}
+
+.data-calender {
+	&-controller {
+		&-button {
+			width: 70px;
+			height: 70px;
+			display: flex;
+			cursor: pointer;
+			align-items: center;
+			border-radius: 70px;
+			color: $primary-color;
+			justify-content: center;
+			background-color: $tertiary-color;
+			border: solid $primary-color 1px;
+			transition: transform 0.5s;
+			transform: scale(1);
+
+			&:active {
+				transform: scale(0.9);
+			}
+
+			& > i {
+				font-size: 2em;
+			}
+		}
+	}
+}

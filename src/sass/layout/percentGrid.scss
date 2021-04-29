@@ -1,0 +1,27 @@
+#percent-grid {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+
+	&-item {
+		width: 30%;
+		margin: 60px 0 0 0;
+		position: relative;
+	}
+	&-title {
+		font-size: 1.4em;
+		font-weight: 800;
+		margin: 10px 0 0 0;
+		color: $white-color;
+		text-transform: capitalize;
+	}
+
+	&-percent {
+		width: 50%;
+		height: 50%;
+	}
+
+	&-description {
+		margin-top: 18px;
+	}
+}

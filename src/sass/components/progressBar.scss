@@ -1,0 +1,23 @@
+#progress-bar {
+	position: relative;
+	&-indicator {
+		width: 100%;
+		height: 3px;
+		overflow: hidden;
+		background-color: $secondary-color;
+
+		&-bar {
+			height: inherit;
+			background-color: $primary-color;
+		}
+	}
+	&-label {
+		display: flex;
+		justify-content: flex-end;
+		&-text {
+			font-weight: 400;
+			font-size: 0.9em;
+			color: $primary-color;
+		}
+	}
+}

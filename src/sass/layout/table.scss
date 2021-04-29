@@ -1,0 +1,13 @@
+#table {
+	padding-right: 80px;
+
+	&-name {
+		padding-right: 10px;
+		font-size: 1em;
+		font-weight: bold;
+	}
+	&-value {
+		font-size: 1em;
+		font-weight: bold;
+	}
+}

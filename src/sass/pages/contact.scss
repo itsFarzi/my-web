@@ -1,0 +1,57 @@
+#contact {
+	&-content {
+		margin-top: 80px;
+	}
+	&-data {
+		margin-left: 40px;
+		padding: 20px;
+		border-radius: 20px;
+		border: solid 1px $secondary-color;
+
+		&-heading {
+			font-weight: 800;
+			font-size: 1.4em;
+			color: $white-color;
+			text-transform: capitalize;
+
+			&-sub {
+				font-size: 1em;
+				font-weight: 600;
+				margin: 6px 0 30px 0;
+				color: $primary-color;
+				text-transform: capitalize;
+			}
+		}
+		&-name {
+			color: $primary-color;
+			text-transform: uppercase;
+		}
+		&-value {
+			margin-left: 10px;
+		}
+		&-signature {
+			margin-top: 40px;
+			width: 50%;
+		}
+	}
+	&-form {
+		display: flex;
+		flex-direction: column;
+		& input,
+		textarea {
+			margin-bottom: 30px;
+		}
+	}
+}
+
+.contact {
+	&-data {
+		&-item {
+			font-weight: 600;
+			font-size: 1.2em;
+			color: $white-color;
+			margin: 0 0 10px 0;
+			text-transform: capitalize;
+		}
+	}
+}

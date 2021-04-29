@@ -1,0 +1,25 @@
+.heading {
+	&-primary {
+		font-size: 3em;
+		font-weight: bolder;
+		color: $white-color;
+		text-transform: capitalize;
+	}
+	&-secondary {
+		font-size: 1em;
+		font-weight: 600;
+		color: $primary-color;
+		text-transform: uppercase;
+		&-margin {
+			margin-top: 10px;
+		}
+	}
+	&-tertiary {
+		word-spacing: 2px;
+		line-height: 1.8em;
+		font-size: 0.9em;
+		font-weight: 600;
+		color: $white-color;
+		text-transform: capitalize;
+	}
+}

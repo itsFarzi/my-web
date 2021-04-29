@@ -1,0 +1,43 @@
+$width: 350px;
+
+#input {
+	&-container {
+		position: relative;
+	}
+	&-title {
+		left: 32px;
+		top: -0.8em;
+		padding: 0 6px;
+		font-size: 0.8em;
+		position: absolute;
+		color: $white-color;
+		font-weight: bolder;
+		text-transform: uppercase;
+		background-color: $tertiary-color;
+
+		& span {
+			color: $primary-color;
+			margin-left: 8px;
+		}
+	}
+	width: $width;
+	padding: 20px;
+	font-weight: 600;
+	color: $white-color;
+	border-radius: 20px;
+	text-transform: capitalize;
+	background-color: transparent;
+	border: solid 1px $secondary-color;
+}
+
+.text-area {
+	max-width: $width;
+	min-width: $width;
+	max-height: 200px;
+	min-height: 200px;
+	resize: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
