@@ -4,8 +4,10 @@ import React, {
 	useEffect,
 	forwardRef,
 	useImperativeHandle,
+	useContext,
 } from "react";
 import { chunk } from "lodash";
+import { GeneralContext } from "../context";
 
 const Controller = ({ dataCalenderRef }) => {
 	return (
@@ -13,13 +15,13 @@ const Controller = ({ dataCalenderRef }) => {
 			<div
 				id="data-calender-controller-left"
 				className="data-calender-controller-button"
-				children={<i class="fas fa-angle-left" />}
+				children={<i className="fas fa-angle-left" />}
 				onClick={() => dataCalenderRef.current.previous()}
 			/>
 			<div
 				id="data-calender-controller-right"
 				className="data-calender-controller-button"
-				children={<i class="fas fa-angle-right" />}
+				children={<i className="fas fa-angle-right" />}
 				onClick={() => dataCalenderRef.current.next()}
 			/>
 			<div id="data-calender-controller-bar" />
@@ -28,11 +30,14 @@ const Controller = ({ dataCalenderRef }) => {
 };
 
 const DataCalender = ({ data = [], noOfColumns = 2 }, ref) => {
+	const { isMobile } = useContext(GeneralContext);
+
+	const [WIDTH, setWIDTH] = useState(0);
 	const [index, setIndex] = useState(0);
 
-	const scrollViewRef = useRef();
+	const scrollViewRef = useRef({ offsetWidth: 0 });
 
-	const WIDTH = 800;
+	data = chunk(data, isMobile ? 1 : noOfColumns);
 
 	useImperativeHandle(ref, () => ({
 		next,
@@ -41,13 +46,16 @@ const DataCalender = ({ data = [], noOfColumns = 2 }, ref) => {
 	}));
 
 	useEffect(() => {
+		setWIDTH(scrollViewRef.current.offsetWidth);
+	}, [isMobile]);
+
+	useEffect(() => {
 		scrollViewRef.current.scrollTo({
 			left: index * WIDTH,
 		});
 	}, [index]);
 
-	const next = () =>
-		index < chunk(data, noOfColumns).length - 1 && setIndex(index + 1);
+	const next = () => index < data.length - 1 && setIndex(index + 1);
 
 	const previous = () => index > 0 && setIndex(index - 1);
 
@@ -60,10 +68,7 @@ const DataCalender = ({ data = [], noOfColumns = 2 }, ref) => {
 			? "Present"
 			: `${new Date(from).getFullYear()} - ${new Date(to).getFullYear()}`;
 		return (
-			<div
-				key={index}
-				id="data-calender-item"
-				style={{ width: WIDTH / length }}>
+			<div key={index} id="data-calender-item">
 				<p id="data-calender-title" children={title} />
 				<p id="data-calender-subTitle" children={sub_title} />
 				<p id="data-calender-time" children={time} />
@@ -89,8 +94,8 @@ const DataCalender = ({ data = [], noOfColumns = 2 }, ref) => {
 		<div
 			id="data-calender"
 			ref={scrollViewRef}
-			style={{ maxWidth: WIDTH }}
-			children={chunk(data, noOfColumns).map(renderItem)}
+			style={!WIDTH ? {} : { maxWidth: WIDTH }}
+			children={data.map(renderItem)}
 		/>
 	);
 };

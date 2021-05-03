@@ -71,11 +71,6 @@ input:-webkit-autofill:active {
   transition: all 5000s ease-in-out 0s;
 }
 
-#experience,
-#education {
-  padding-right: 0 !important;
-}
-
 #education,
 #skills {
   padding-top: 20px !important;
@@ -113,6 +108,11 @@ input:-webkit-autofill:active {
   font-weight: bolder;
   color: #fff;
   text-transform: capitalize;
+}
+@media screen and (max-width: 500px) {
+  .heading-primary {
+    font-size: 2em;
+  }
 }
 .heading-secondary {
   font-size: 1em;
@@ -156,7 +156,7 @@ input:-webkit-autofill:active {
 }
 
 #input {
-  width: 350px;
+  width: 100%;
   padding: 20px;
   font-weight: 600;
   color: #fff;
@@ -185,8 +185,8 @@ input:-webkit-autofill:active {
 }
 
 .text-area {
-  max-width: 350px;
-  min-width: 350px;
+  max-width: 100%;
+  min-width: 100%;
   max-height: 200px;
   min-height: 200px;
   resize: none;
@@ -198,6 +198,11 @@ input:-webkit-autofill:active {
 #table {
   padding-right: 80px;
 }
+@media screen and (max-width: 1100px) {
+  #table {
+    flex-direction: column !important;
+  }
+}
 #table-name {
   padding-right: 10px;
   font-size: 1em;
@@ -208,11 +213,6 @@ input:-webkit-autofill:active {
   font-weight: bold;
 }
 
-@media (max-width: 1280px) {
-  #header {
-    color: #30e3ca;
-  }
-}
 #header {
   z-index: 1000;
   display: flex;
@@ -221,13 +221,49 @@ input:-webkit-autofill:active {
   align-items: center;
   text-transform: capitalize;
   background-color: #536162;
-  padding: 10px;
+  padding: 20px 10px 20px 20px;
   justify-content: space-between;
   border-radius: 100vw;
   position: fixed;
   left: 20px;
   right: 20px;
   top: 20px;
+  height: 80px;
+  transition: all 0.5s ease;
+}
+@media screen and (max-width: 1100px) {
+  #header {
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    border-radius: 0vw;
+    padding: 20px 0px 20px 20px;
+  }
+}
+#header-cv-button {
+  height: 60px;
+}
+@media screen and (max-width: 1100px) {
+  #header-right {
+    display: none;
+  }
+}
+#header-right-menu {
+  display: none;
+  align-items: center;
+  width: 80px;
+  height: 80px;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 1s;
+}
+#header-right-menu > i {
+  font-size: 26.6666666667px;
+}
+@media screen and (max-width: 1100px) {
+  #header-right-menu {
+    display: flex;
+  }
 }
 #header-logo {
   font-size: 1.5em;
@@ -248,8 +284,37 @@ input:-webkit-autofill:active {
   font-size: 0.9em;
   margin-right: 20px;
 }
+@media screen and (max-width: 1100px) {
+  .header-item {
+    margin: 0 0 20px 0;
+    font-size: 1.2em;
+  }
+}
 .header-item-active {
   color: #30e3ca;
+}
+.header-item-tablet {
+  top: 0;
+  right: 0;
+  height: 0;
+  width: 100vw;
+  z-index: -10;
+  overflow: hidden;
+  position: absolute;
+  align-items: center;
+  flex-direction: column;
+  transition: all 0.5s ease;
+  padding-top: 80px;
+  background-color: #536162;
+  display: none;
+}
+@media screen and (max-width: 1100px) {
+  .header-item-tablet {
+    display: flex;
+  }
+}
+.header-item-tablet-active {
+  height: 100vh;
 }
 
 #data-calender {
@@ -303,6 +368,14 @@ input:-webkit-autofill:active {
   position: relative;
   align-items: center;
   padding-right: 80px;
+  margin-right: -40px;
+}
+@media screen and (max-width: 500px) {
+  #data-calender-controller {
+    padding-right: 0;
+    margin: 30px 0 0 0;
+    justify-content: center;
+  }
 }
 #data-calender-controller-left {
   margin-right: 25px;
@@ -316,6 +389,11 @@ input:-webkit-autofill:active {
   z-index: -10;
   position: absolute;
   background: #30e3ca;
+}
+@media screen and (max-width: 500px) {
+  #data-calender-controller-bar {
+    display: none;
+  }
 }
 
 .data-calender-controller-button {
@@ -349,6 +427,16 @@ input:-webkit-autofill:active {
   margin: 60px 0 0 0;
   position: relative;
 }
+@media screen and (max-width: 1100px) {
+  #percent-grid-item {
+    width: 40%;
+  }
+}
+@media screen and (max-width: 500px) {
+  #percent-grid-item {
+    width: 100%;
+  }
+}
 #percent-grid-title {
   font-size: 1.4em;
   font-weight: 800;
@@ -376,6 +464,11 @@ input:-webkit-autofill:active {
 #main-content::-webkit-scrollbar {
   display: none;
 }
+@media screen and (max-width: 1100px) {
+  #main-content {
+    flex-direction: column;
+  }
+}
 #main-album {
   width: 30vw;
   height: 100vh;
@@ -384,6 +477,19 @@ input:-webkit-autofill:active {
   position: fixed;
   top: 0;
   left: 0;
+}
+@media screen and (max-width: 1100px) {
+  #main-album.display-clone {
+    display: none;
+  }
+}
+@media screen and (max-width: 1100px) {
+  #main-album {
+    width: 100vw;
+    height: 50vh;
+    position: relative;
+    margin-top: 80px;
+  }
 }
 #main-album-image {
   top: 0;
@@ -396,6 +502,12 @@ input:-webkit-autofill:active {
   background-position: center center;
   filter: grayscale(100%);
   mix-blend-mode: luminosity;
+}
+@media screen and (max-width: 1100px) {
+  #main-album-image {
+    width: 100vw;
+    height: 50vh;
+  }
 }
 #main-socials {
   height: 100vh;
@@ -411,30 +523,49 @@ input:-webkit-autofill:active {
   top: 0;
   right: 0;
 }
+@media screen and (max-width: 1100px) {
+  #main-socials {
+    height: 50px;
+    position: relative;
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+  }
+}
 #main-socials a {
   text-decoration: none;
 }
 #main-socials-item {
-  width: 4vw;
-  height: 4vw;
+  width: 50px;
+  height: 50px;
   display: flex;
-  border-radius: 4vw;
+  border-radius: 50px;
   align-items: center;
   justify-content: center;
   border: solid #536162;
   border-width: 1px;
-  font-size: 1.3vw;
+  font-size: 15px;
+}
+@media screen and (max-width: 1100px) {
+  #main-socials-item {
+    margin: 0 0 0 15px !important;
+  }
 }
 #main-pages {
-  display: flex;
   flex: 1;
+  display: flex;
   height: 100vh;
   flex-direction: column;
 }
 #main-pages > * {
   border: solid #536162;
   border-width: 0 0 1px 0;
-  padding: 20vh 40px 40px 40px;
+  padding: 100px 40px 40px 40px;
+}
+@media screen and (max-width: 1100px) {
+  #main-pages > * {
+    padding: 40px 40px 40px 40px;
+  }
 }
 
 #me {
@@ -453,6 +584,14 @@ input:-webkit-autofill:active {
   padding: 40px;
   margin-left: -140px;
 }
+@media screen and (max-width: 1100px) {
+  #me-name {
+    align-self: center;
+    margin: -140px 0 0 0;
+    border-radius: 1000px 1000px 0 0;
+    text-align: center;
+  }
+}
 
 #about-me-description {
   margin: 80px 0 40px 0;
@@ -461,11 +600,23 @@ input:-webkit-autofill:active {
 #contact-content {
   margin-top: 80px;
 }
+@media screen and (max-width: 500px) {
+  #contact-content {
+    flex-direction: column;
+  }
+}
 #contact-data {
+  width: 50%;
   margin-left: 40px;
   padding: 20px;
   border-radius: 20px;
   border: solid 1px #536162;
+}
+@media screen and (max-width: 500px) {
+  #contact-data {
+    width: 100%;
+    margin: 40px 0 0 0;
+  }
 }
 #contact-data-heading {
   font-weight: 800;
@@ -494,10 +645,16 @@ input:-webkit-autofill:active {
 #contact-form {
   display: flex;
   flex-direction: column;
+  width: 40%;
 }
 #contact-form input,
 #contact-form textarea {
   margin-bottom: 30px;
+}
+@media screen and (max-width: 500px) {
+  #contact-form {
+    width: 100%;
+  }
 }
 
 .contact-data-item {

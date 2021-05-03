@@ -4,6 +4,10 @@
 		font-weight: bolder;
 		color: $white-color;
 		text-transform: capitalize;
+
+		@include mobile {
+			font-size: 2em;
+		}
 	}
 	&-secondary {
 		font-size: 1em;

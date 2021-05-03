@@ -1,13 +1,21 @@
 #contact {
 	&-content {
 		margin-top: 80px;
+		@include mobile {
+			flex-direction: column;
+		}
 	}
 	&-data {
+		width: 50%;
 		margin-left: 40px;
 		padding: 20px;
 		border-radius: 20px;
 		border: solid 1px $secondary-color;
 
+		@include mobile {
+			width: 100%;
+			margin: 40px 0 0 0 ;
+		}
 		&-heading {
 			font-weight: 800;
 			font-size: 1.4em;
@@ -37,9 +45,13 @@
 	&-form {
 		display: flex;
 		flex-direction: column;
+		width: 40%;
 		& input,
 		textarea {
 			margin-bottom: 30px;
+		}
+		@include mobile {
+			width: 100%;
 		}
 	}
 }

@@ -1,9 +1,3 @@
-@media (max-width: 1280px) {
-	#header {
-		color: $primary-color;
-	}
-}
-
 #header {
 	z-index: 1000;
 	display: flex;
@@ -12,14 +6,50 @@
 	align-items: center;
 	text-transform: capitalize;
 	background-color: $secondary-color;
-	padding: 10px;
+	padding: 20px 10px 20px 20px;
 	justify-content: space-between;
 	border-radius: 100vw;
 	position: fixed;
 	left: 20px;
 	right: 20px;
 	top: 20px;
+	height: $header-height;
+	transition: all 0.5s ease;
 
+	@include tablet {
+		top: 0px;
+		left: 0px;
+		right: 0px;
+		border-radius: 0vw;
+		padding: 20px 0px 20px 20px;
+	}
+
+	&-cv {
+		&-button {
+			height: $header-height - 20;
+		}
+	}
+	&-right {
+		@include tablet {
+			display: none;
+		}
+		&-menu {
+			display: none;
+			align-items: center;
+			width: $header-height;
+			height: $header-height;
+			justify-content: center;
+			cursor: pointer;
+			transition: all 1s;
+			& > i {
+				font-size: $header-height / 3;
+			}
+
+			@include tablet {
+				display: flex;
+			}
+		}
+	}
 	&-logo {
 		font-size: 1.5em;
 
@@ -42,7 +72,33 @@
 	cursor: pointer;
 	font-size: 0.9em;
 	margin-right: 20px;
+	@include tablet {
+		margin: 0 0 20px 0;
+		font-size: 1.2em;
+	}
 	&-active {
 		color: $primary-color;
+	}
+	&-tablet {
+		top: 0;
+		right: 0;
+		height: 0;
+		width: 100vw;
+		z-index: -10;
+		overflow: hidden;
+		position: absolute;
+		align-items: center;
+		flex-direction: column;
+		transition: all 0.5s ease;
+		padding-top: $header-height;
+		background-color: $secondary-color;
+		display: none;
+
+		@include tablet {
+			display: flex;
+		}
+		&-active {
+			height: 100vh;
+		}
 	}
 }

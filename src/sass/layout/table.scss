@@ -1,6 +1,10 @@
 #table {
 	padding-right: 80px;
 
+	@include tablet {
+		flex-direction: column !important;
+	}
+
 	&-name {
 		padding-right: 10px;
 		font-size: 1em;

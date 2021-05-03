@@ -57,6 +57,13 @@
 		position: relative;
 		align-items: center;
 		padding-right: 80px;
+		margin-right: -40px;
+
+		@include mobile {
+			padding-right: 0;
+			margin: 30px 0 0 0;
+			justify-content: center;
+		}
 
 		&-left {
 			margin-right: 25px;
@@ -71,6 +78,10 @@
 			z-index: -10;
 			position: absolute;
 			background: $primary-color;
+
+			@include mobile {
+				display: none;
+			}
 		}
 	}
 }

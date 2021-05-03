@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
-import { Input, Table } from "../components";
 import { DataContext } from "../context";
+import { Input } from "../components";
 import { getAge } from "../helper";
 import { map } from "lodash";
 
@@ -17,10 +17,11 @@ const Form = ({ data = [], onSuccess = () => {} }) => {
 
 	return (
 		<form id="contact-form" onSubmit={onSubmit}>
-			{map(data, ({ name, ...item }) => (
+			{map(data, ({ name, ...item }, index) => (
 				<Input
 					{...item}
 					required
+					key={index}
 					name={name}
 					onChange={onChange}
 					value={values[name] || ""}
@@ -107,7 +108,11 @@ const Contact = () => {
 							</div>
 						))}
 					/>
-					<img id="contact-data-signature" src={signature} alt="signature" />
+					<img
+						id="contact-data-signature"
+						src={signature}
+						alt="signature"
+					/>
 				</div>
 			</div>
 		</div>

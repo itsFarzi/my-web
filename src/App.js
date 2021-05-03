@@ -1,5 +1,6 @@
-import React from "react";
-import { DataContext } from "./context";
+import React, { useEffect, useState } from "react";
+import { DataContext, GeneralContext } from "./context";
+import { Device } from "./helper";
 import { Main } from "./pages";
 
 const data = {
@@ -107,11 +108,24 @@ const data = {
 };
 
 function App() {
+	const [general, setGeneral] = useState({});
+
+	useEffect(() => {
+		setGeneral({
+			...general,
+			isDesktop: window.innerWidth > Device.tabletWidth,
+			isTablet: window.innerWidth <= Device.tabletWidth,
+			isMobile: window.innerWidth <= Device.mobileWidth,
+		});
+	}, []);
+
 	return (
 		<div className="App">
-			<DataContext.Provider value={data}>
-				<Main />
-			</DataContext.Provider>
+			<GeneralContext.Provider value={general}>
+				<DataContext.Provider value={data}>
+					<Main />
+				</DataContext.Provider>
+			</GeneralContext.Provider>
 		</div>
 	);
 }

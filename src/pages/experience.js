@@ -1,10 +1,11 @@
 import React, { useContext, useRef } from "react";
 import { Controller } from "../components/dataCalender";
 import { DataCalender } from "../components";
-import { DataContext } from "../context";
+import { DataContext, GeneralContext } from "../context";
 
 const Experience = () => {
 	const { experiences, experience_sub_heading } = useContext(DataContext);
+	const { isMobile } = useContext(GeneralContext);
 	const dataCalenderRef = useRef();
 
 	return (
@@ -22,9 +23,10 @@ const Experience = () => {
 						onClick={() => dataCalenderRef.current.previous()}
 					/>
 				</div>
-				<Controller dataCalenderRef={dataCalenderRef} />
+				{!isMobile && <Controller dataCalenderRef={dataCalenderRef} />}
 			</div>
 			<DataCalender ref={dataCalenderRef} data={experiences} />
+			{isMobile && <Controller dataCalenderRef={dataCalenderRef} />}
 		</section>
 	);
 };

@@ -14,5 +14,12 @@
 		border-radius: 1000px 0 0 1000px;
 		padding: 40px;
 		margin-left: -140px;
+
+		@include tablet {
+			align-self: center;
+			margin: -140px 0 0 0;
+			border-radius: 1000px 1000px 0 0;
+			text-align: center;
+		}
 	}
 }

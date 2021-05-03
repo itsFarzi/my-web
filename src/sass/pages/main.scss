@@ -9,6 +9,9 @@
 		&::-webkit-scrollbar {
 			display: none;
 		}
+		@include tablet {
+			flex-direction: column;
+		}
 	}
 
 	&-album {
@@ -20,6 +23,17 @@
 		top: 0;
 		left: 0;
 
+		&.display-clone {
+			@include tablet {
+				display: none;
+			}
+		}
+		@include tablet {
+			width: 100vw;
+			height: 50vh;
+			position: relative;
+			margin-top: $header-height;
+		}
 		&-image {
 			// background-image: url();
 			top: 0;
@@ -32,6 +46,10 @@
 			background-position: center center;
 			filter: grayscale(100%);
 			mix-blend-mode: luminosity;
+			@include tablet {
+				width: 100vw;
+				height: 50vh;
+			}
 		}
 	}
 
@@ -49,39 +67,46 @@
 		top: 0;
 		right: 0;
 
+		@include tablet {
+			height: 50px;
+			position: relative;
+			align-items: center;
+			flex-direction: row;
+			justify-content: center;
+		}
 		& a {
 			text-decoration: none;
 		}
 
 		&-item {
-			width: 4vw;
-			height: 4vw;
+			width: 50px;
+			height: 50px;
 			display: flex;
-			border-radius: 4vw;
+			border-radius: 50px;
 			align-items: center;
 			justify-content: center;
 			border: solid $secondary-color;
 			border-width: 1px;
-			font-size: 1.3vw;
+			font-size: 15px;
+			@include tablet {
+				margin: 0 0 0 15px !important;
+			}
 		}
 	}
 
 	&-pages {
-		display: flex;
 		flex: 1;
+		display: flex;
 		height: 100vh;
 		flex-direction: column;
 
 		& > * {
 			border: solid $secondary-color;
 			border-width: 0 0 1px 0;
-			padding: 20vh 40px 40px 40px;
-
-			// & > section {
-			// 	border: solid $secondary-color;
-			// 	border-width: 0 0 1px 0;
-			// 	padding: 20vh 0px 40px 40px;
-			// }
+			padding: $header-height + 20 40px 40px 40px;
+			@include tablet {
+				padding: 40px 40px 40px 40px;
+			}
 		}
 	}
 }
